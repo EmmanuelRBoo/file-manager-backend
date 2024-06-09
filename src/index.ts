@@ -1,4 +1,4 @@
-import Express from 'express'
+import Express, { Request, Response } from 'express'
 import cors from 'cors'
 
 import { authRouter, folderRouter } from './routes'
@@ -14,7 +14,7 @@ app.use('/api/v1/',
     folderRouter
 )
 
-app.use('/', () => 'Hello world')
+app.use('/', (req: Request, res: Response) => res.status(200).json({ hi: 'Its working' }))
 
 const startServer = () => {
     console.log(`server up on port: ${PORT}`)

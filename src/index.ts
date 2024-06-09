@@ -9,10 +9,12 @@ const app = Express()
 app.use(Express.json())
 app.use(cors())
 
-app.use('/api/v1/', 
+app.use('/api/v1/',
     authRouter,
     folderRouter
 )
+
+app.use('/', () => 'Hello world')
 
 const startServer = () => {
     console.log(`server up on port: ${PORT}`)
